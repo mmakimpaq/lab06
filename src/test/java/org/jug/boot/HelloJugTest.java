@@ -8,6 +8,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -28,6 +29,9 @@ public class HelloJugTest {
     @Before
     public void setUp() {
         mockMvc = webAppContextSetup(wac).build();
+//      mockMvc = MockMvcBuilders.standaloneSetup(new HelloJug()).build();
+//    to bylby bardziej jednostkowy test(bez koniecznosci podnoszenia kontekstu, jedynie sam kontroler) a nie integracyjny, jednakże
+//    ze wzgledu na konfiguracje dodatkową potrzebujemy ten kontekts podnieść
     }
 
     @Test
